@@ -21,6 +21,8 @@ Purpose: Automate the configuration of 2 Webservers, 1 DB Server, 1 NFS server, 
     e. Allow and test Automatic job build to the "Jenkins-ansible" server on the main branch from your repo.
 
 
-2. Jenkins is that tech tool that saves artifact.
+2. Jenkins is that tech tool that saves artifacts.
+
+3. Pipeline: This plugin allows Jenkins to implement and execute a project as a pipeline, which is a sequence of stages that perform different tasks, such as building, testing, deploying, etc. A pipeline can be defined using a domain-specific language (DSL) called Groovy, or using a graphical editor called Blue Ocean. A pipeline can also be stored as a file called Jenkinsfile in the source code repository, which enables versioning and collaboration of the pipeline definition.
 
 
