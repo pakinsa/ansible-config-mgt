@@ -32,6 +32,10 @@ Purpose: Automate the configuration of 2 Webservers, 1 DB Server, 1 NFS server, 
 #### JUnit: This plugin allows Jenkins to integrate with JUnit, one of the most popular testing frameworks for Java projects. It enables Jenkins to parse and display JUnit test results, and mark builds as unstable or failed based on the test outcome. It also provides support for test trends, test history, and test flakiness analysis.
 
 2. The /var directory in Jenkins is neither a root nor a home folder, but a subdirectory of the Jenkins installation directory. It contains various files and folders that are used by Jenkins, such as logs, plugins, jobs, etc. The /var directory has a parent folder, which is the Jenkins installation directory, which can vary depending on how Jenkins was installed and configured. For example, if Jenkins was installed using the Debian package, the installation directory would be /usr/share/jenkins, and the /var directory would be /usr/share/jenkins/var. If Jenkins was installed using the WAR file, the installation directory would be the location of the WAR file, and the /var directory would be a subdirectory of that location.
+
+3. Ansible is a robust configuration management
+
+
    
 
 
