@@ -3,3 +3,13 @@
 - import_playbook: ../static_assignments/common_del.yml
 
 
+---
+- hosts: all
+- import_playbook: ../static_assignments/common.yml
+
+- hosts: uat-webservers
+- import_playbook: ../static_assignments/uat-webservers.yml
+
+
+
+
