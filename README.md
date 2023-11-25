@@ -38,6 +38,15 @@ Purpose: Automate the configuration of 2 Webservers, 1 DB Server, 1 NFS server, 
 Ansible using yum. It seems that the Ansible package is not available in the default repositories of your system. You may need to enable the Extra Packages for Enterprise Linux (EPEL) repository first, which contains the Ansible package and many other useful packages. To enable the EPEL repository, you can run
 
 
+According to the web search results I found, the latest version of Ansible depends on whether you are referring to the Ansible community package or ansible-core. The Ansible community package is a collection of modules, plugins, and roles that offer the functionality that existed in Ansible 2.9, while ansible-core is the minimal set of modules and plugins required to run Ansible. The Ansible community package uses a new versioning system that follows semantic versioning rules, while ansible-core continues the “classic Ansible” versioning1.
+
+As of November 2021, the latest version of the Ansible community package is 4.8.0, which was released on November 9, 2021. This version is based on ansible-core 2.11.7, which was released on November 2, 20212. You can install the Ansible community package using the pip command, such as:
+
+$ pip install ansible
+
+The latest version of ansible-core is 2.12.0, which was released on November 16, 2021. This version introduces many new features and improvements, such as the ansible-test command, the ansible-galaxy collection init command, the ansible-inventory --graph --yaml option, and more3. You can install ansible-core using the pip command, such as:
+
+$ pip install ansible-core
    
 
 
