@@ -50,3 +50,8 @@ $ pip install ansible-core
    
 
 
+You can create the /etc/ansible directory in Linux Ubuntu if it does not exist already. This directory is the default location for Ansible configuration and inventory files on most Linux systems. To create this directory, you need to use the mkdir command in the terminal. The mkdir command stands for make directory and it allows you to create new directories in the file system. To use the mkdir command, you need to type mkdir followed by a space and the name of the directory you want to create. For example, to create the /etc/ansible directory, you would type:
+
+$ sudo mkdir /etc/ansible
+
+and then press [Enter]. You may need to enter your password to confirm the command. This will create the /etc/ansible directory in the /etc directory. You can verify this by using the ls command, which stands for list and it shows you the files and directories in your current location. For example, after creating the /etc/ansible directory, you would see something like this:
