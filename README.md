@@ -35,6 +35,8 @@ Purpose: Automate the configuration of 2 Webservers, 1 DB Server, 1 NFS server, 
 
 3. Ansible is a robust configuration management and interesting content
 
+Ansible using yum. It seems that the Ansible package is not available in the default repositories of your system. You may need to enable the Extra Packages for Enterprise Linux (EPEL) repository first, which contains the Ansible package and many other useful packages. To enable the EPEL repository, you can run
+
 
    
 
