@@ -1,14 +1,7 @@
+---
 - hosts: uat-webservers
+  become: yes
+  become_user: root
+  become_method: sudo
   roles:
-  webserver
-
-
- # roles:
-# - name: role1
-#    webserver: true
-#  - name: role2
-#    another_parameter: value  ###
-
-
-#- hosts: uat-webservers[0:2] roles:
-#  - webserver
+    - webserver
