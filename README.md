@@ -55,3 +55,22 @@ You can create the /etc/ansible directory in Linux Ubuntu if it does not exist a
 $ sudo mkdir /etc/ansible
 
 and then press [Enter]. You may need to enter your password to confirm the command. This will create the /etc/ansible directory in the /etc directory. You can verify this by using the ls command, which stands for list and it shows you the files and directories in your current location. For example, after creating the /etc/ansible directory, you would see something like this:
+
+
+Permission to Copy Artifact in Jenkins means that you can copy the files or folders that are generated or stored by another Jenkins job. For example, you may want to copy the binary files, test results, or configuration files from one job to another. This can help you reuse the artifacts and avoid duplicating the work.
+
+To copy the artifacts from another job, you need to use the Copy Artifact Plugin ¹, which provides a build step and a pipeline step that allow you to specify the source job, the files to copy, and the destination directory. You can also use variables, filters, and parameters to customize the copy operation.
+
+However, not every job can copy the artifacts from another job. You need to have the permission to do so. To grant permission to copy artifacts in Jenkins, you need to enable authorization and grant permission 'Copy Artifact' to the project. In the project configuration, go to General -> Permission to Copy Artifact, check the box and set the projects that can copy the artifact. Alternatively, you can add information about which task can copy artifacts on the job setup page. The Copyartifact plugin treats builds running as an anonymous, so copying artifacts is allowed if the project with artifacts is readable from anonymous ².
+
+I hope this helps you understand what Permission to Copy Artifact in Jenkins means. Let me know if you have any other questions! 😊
+
+Source: Conversation with Bing, 01/12/2023
+(1) Jenkins CopyArtifact step - Unable to find project for artifact copy. https://stackoverflow.com/questions/48834762/jenkins-copyartifact-step-unable-to-find-project-for-artifact-copy.
+(2) . https://bing.com/search?q=Permission+to+Copy+Artifact+in+jenkins+means.
+(3) Jenkins Permission to Copy Artifact is always granted. https://stackoverflow.com/questions/49425700/jenkins-permission-to-copy-artifact-is-always-granted.
+(4) jenkins - Grant copy artIfact permission in multi-branch pipeline .... https://stackoverflow.com/questions/47771722/grant-copy-artifact-permission-in-multi-branch-pipeline.
+(5) How to add permission to copy artifacts in Jenkins - Czerniga. https://www.czerniga.it/2022/01/05/how-to-add-permission-to-copy-artifacts-in-jenkins/.
+(6) Copy Artifact | Jenkins plugin. https://plugins.jenkins.io/copyartifact/.
+(7) undefined. https://wiki.jenkins.io/JENKINS/Copy-Artifact-Plugin.html.
+(8) undefined. https://wiki.jenkins.io/display/JENKINS/Copy+Artifact+Plugin.
