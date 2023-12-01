@@ -109,3 +109,6 @@ It seems like you are trying to connect to an Amazon EC2 instance using SSH with
 The identity file (latestkeys2.pem) you specified does not exist or is not accessible in the current directory. You can check if the file is there by using the ls command or the full path to the file by using the pwd command.
 The public key in the identity file does not match the one in the authorized_keys file on the remote server. You can verify this by using the ssh-keygen -y -f latestkeys2.pem command to print the public key and compare it with the one in the authorized_keys file on the server. You can also use the ssh-copy-id command to copy the public key to the server automatically.
 
+
+The user running the Jenkins job does not have read and write permissions on the directory (/home/ubuntu/ansible-config-artifact) or its parent directories. You can check the permissions by using the ls -l command or change them by using the chmod command. For example, chmod 755 /home/ubuntu/ansible-config-artifact will set the permissions to 755 for the directory, which means that the owner can read, write and execute, the group can read and execute, and others can read and execute.
+
