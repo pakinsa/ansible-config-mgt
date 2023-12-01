@@ -1,5 +1,5 @@
 ---
-- hosts: uat-webservers
+- hosts: uat_webservers
   become: yes
   become_user: root
   become_method: sudo

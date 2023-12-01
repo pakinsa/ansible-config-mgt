@@ -91,3 +91,15 @@ To fix this error, you need to either change the ownership or the permissions of
 
 
 However, not every job can copy the artifacts from another job. You need to have the permission to do so. To grant permission to copy artifacts in Jenkins, you need to enable authorization and grant permission ‘Copy Artifact’ to the project. In the project configuration, go to General -> Permission to Copy Artifact, check the box and set the projects that can copy the artifact. Alternatively, you can add information about which task can copy artifacts on the job setup page. The Copyartifact plugin treats builds running as an anonymous, so copying artifacts is allowed if the project with artifacts is readable from anonymous 2.
+
+
+One way to check the syntax of your Ansible playbook before running it is to use the --syntax-check option with the ansible-playbook command. For example, if your playbook is named play.yml, you can run:
+
+ansible-playbook play.yml --syntax-check
+
+This will perform a syntax check on the playbook, but will not execute it. If there are any errors in the syntax, Ansible will report them and exit. If the syntax is valid, Ansible will display the name of the playbook and continue.
+
+Another way to check the syntax of your Ansible playbook is to use a tool called ansible-lint, which also includes style checks. You can install it with pip or yum and then run it on your playbook. For example:
+
+ansible-lint play.yml
+
