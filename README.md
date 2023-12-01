@@ -112,3 +112,11 @@ The public key in the identity file does not match the one in the authorized_key
 
 The user running the Jenkins job does not have read and write permissions on the directory (/home/ubuntu/ansible-config-artifact) or its parent directories. You can check the permissions by using the ls -l command or change them by using the chmod command. For example, chmod 755 /home/ubuntu/ansible-config-artifact will set the permissions to 755 for the directory, which means that the owner can read, write and execute, the group can read and execute, and others can read and execute.
 
+
+One way to check the syntax of your Ansible playbook before running it is to use the --syntax-check option with the ansible-playbook command. For example, if your playbook is named play.yml, you can run:
+
+ansible-playbook play.yml --syntax-check
+
+This will perform a syntax check on the playbook, but will not execute it. If there are any errors in the syntax, Ansible will report them and exit. If the syntax is valid, Ansible will display the name of the playbook and continue.
+
+Another way to check the syntax of your Ansible playbook is to use a tool called ansible-lint, which also includes style checks. You can install it with pip or yum and then run it on your playbook. For example:
