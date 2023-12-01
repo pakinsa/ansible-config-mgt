@@ -103,3 +103,9 @@ Another way to check the syntax of your Ansible playbook is to use a tool called
 
 ansible-lint play.yml
 
+
+It seems like you are trying to connect to an Amazon EC2 instance using SSH with a public key authentication method. However, you are getting a Permission denied (publickey) error. This error may happen for several reasons, such as:
+
+The identity file (latestkeys2.pem) you specified does not exist or is not accessible in the current directory. You can check if the file is there by using the ls command or the full path to the file by using the pwd command.
+The public key in the identity file does not match the one in the authorized_keys file on the remote server. You can verify this by using the ssh-keygen -y -f latestkeys2.pem command to print the public key and compare it with the one in the authorized_keys file on the server. You can also use the ssh-copy-id command to copy the public key to the server automatically.
+
