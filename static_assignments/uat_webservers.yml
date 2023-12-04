@@ -1,7 +1,10 @@
 ---
-- hosts: uat_webservers
+- name: Deploy webserver role to uat_webservers hosts
+  hosts: uat_webservers
   become: yes
   become_user: root
   become_method: sudo
-  roles:
-    - webserver
+  tasks:
+    - name: Include webserver role
+      include_role:
+        name: roles/webserver
