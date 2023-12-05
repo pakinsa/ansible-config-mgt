@@ -1,0 +1,97 @@
+---
+- name: print information
+  ansible.builtin.debug:
+    msg: '{{ intro }}'
+
+- name: dependency presents
+  ansible.builtin.package:
+    name:
+      - unzip
+      - gpg
+      - dirmngr
+      - file
+    state: present
+    update_cache: true
+
+- name: create detector directory
+  ansible.builtin.file:
+    path: '{{ detector_dir }}'
+    state: directory
+    mode: '0644'
+  tags:
+    - molecule-idempotence-notest
+
+- name: download detector file
+  ansible.builtin.get_url:
+    url: "{{ detector_baseurl }}{{ sh_detector }}"
+    dest: "{{ detector_dir }}{{ sh_detector }}"
+    mode: '0755'
+    owner: root
+    group: root
+  tags:
+    - molecule-idempotence-notest
+
+- name: download detector signature
+  ansible.builtin.get_url:
+    url: "{{ detector_baseurl }}{{ sh_signature }}"
+    dest: "{{ detector_dir }}{{ sh_signature }}"
+    mode: '0644'
+    owner: root
+    group: root
+  when: verify_gpg
+  tags:
+    - molecule-idempotence-notest
+
+- name: gpg public key
+  ansible.builtin.command: '{{ gpg_public_key }}'
+  when: verify_gpg
+  tags:
+    - molecule-idempotence-notest
+
+- name: gpg verify detector
+  ansible.builtin.command: '{{ gpg_verify }}'
+  when: verify_gpg
+  tags:
+    - molecule-idempotence-notest
+
+- name: remove any detector run directory
+  ansible.builtin.file:
+    path: '{{ detector_dir }}{{ detector_run_dir }}'
+    state: absent
+  when: clean_run_before
+  tags:
+    - molecule-idempotence-notest
+
+- name: create detector run directory
+  ansible.builtin.file:
+    path: '{{ detector_dir }}{{ detector_run_dir }}'
+    state: directory
+    mode: '0644'
+  tags:
+    - molecule-idempotence-notest
+
+- name: run detector/scanner
+  ansible.builtin.command: '{{ detector_cmd }}'
+  tags:
+    - molecule-idempotence-notest
+
+- name: files in detector run directory
+  ansible.builtin.find:
+    paths: '{{ detector_dir }}{{ detector_run_dir }}'
+  register: vulnerable
+  tags:
+    - molecule-idempotence-notest
+
+- name: print vulnerable path(s) found
+  ansible.builtin.debug:
+    var: vulnerable
+  tags:
+    - molecule-idempotence-notest
+
+- name: remove detector directory
+  ansible.builtin.file:
+    path: '{{ detector_dir }}'
+    state: absent
+  when: delete_after
+  tags:
+    - molecule-idempotence-notest

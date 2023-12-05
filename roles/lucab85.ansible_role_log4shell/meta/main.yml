@@ -1,0 +1,54 @@
+---
+galaxy_info:
+  role_name: ansible_role_log4shell
+  author: lucab85
+  description:
+    Ansible playbook to verify target Linux hosts using the official Red Hat
+    Log4j detector script RHSB-2021-009 version 1.2 2021-12-20 for Log4Shell
+    (CVE-2021-44228).
+  company: Luca Berton
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.9
+  platforms:
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: GenericLinux
+      versions:
+        - all
+    - name: Amazon
+      versions:
+        - all
+    - name: ArchLinux
+      versions:
+        - all
+    - name: Alpine
+      versions:
+        - all
+
+  galaxy_tags:
+    - log4j
+    - log4shell
+    - cve202144228
+    - security
+    - system
+    - detector
+    - scanner
+    - redhat
+    - debian
+    - ubuntu
+    - fedora
+    - opensuse
