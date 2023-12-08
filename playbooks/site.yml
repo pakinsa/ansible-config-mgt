@@ -5,8 +5,21 @@
 #- hosts: all
 #- import_playbook: ../static_assignments/common.yml
 
-- hosts: uat_webservers
-- import_playbook: ../static_assignments/uat_webservers.yml
+#- hosts: uat_webservers
+#- import_playbook: ../static_assignments/uat_webservers.yml
+
+---
+- hosts: all
+- name: Include dynamic variables 
+  tasks:
+  import_playbook: ../static_assignments/common.yml 
+  include: ../dynamic_assignments/env-vars.yml
+  tags:
+    - always
+
+-  hosts: webservers
+- name: Webserver assignment
+  import_playbook: ../static_assignments/uat_webservers.yml
 
 
 
