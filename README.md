@@ -120,3 +120,14 @@ ansible-playbook play.yml --syntax-check
 This will perform a syntax check on the playbook, but will not execute it. If there are any errors in the syntax, Ansible will report them and exit. If the syntax is valid, Ansible will display the name of the playbook and continue.
 
 Another way to check the syntax of your Ansible playbook is to use a tool called ansible-lint, which also includes style checks. You can install it with pip or yum and then run it on your playbook. For example:
+
+
+To move all the content of ansible-config-mgt/roles/mysql/geerlingguy.mysql to ansible-config-mgt/roles, you can use the following command:
+
+mv ansible-config-mgt/roles/mysql/geerlingguy.mysql/* ansible-config-mgt/roles
+
+This command will move all the files and folders inside the geerlingguy.mysql folder to the roles folder. However, this might not include any hidden files that start with a dot (.)1. To move those files as well, you can use this command:
+
+mv ansible-config-mgt/roles/mysql/geerlingguy.mysql/{,.[^.]}* ansible-config-mgt/roles
+
+This command will use a shell globbing pattern to match both regular and hidden files, except for . and …2. Alternatively, you can enable the dotglob option in bash to make * match hidden files as well3. To do that, you can use this command:
